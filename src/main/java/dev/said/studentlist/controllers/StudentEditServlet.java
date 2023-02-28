@@ -43,9 +43,11 @@ public class StudentEditServlet extends HttpServlet {
 
         studentDAO.updateStudent(student);
 
+        response.sendRedirect("/students");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/students.jsp");
-        dispatcher.forward(request, response);
+
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/students.jsp");
+//        dispatcher.forward(request, response);
 
     }
 }
