@@ -9,6 +9,11 @@
 <html>
 <head>
     <title>Welcome</title>
+    <style>
+        *{
+            background-color: #109097;
+        }
+    </style>
 </head>
 <body>
 <div style="text-align: center">

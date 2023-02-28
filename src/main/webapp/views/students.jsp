@@ -10,6 +10,11 @@
 <html>
 <head>
     <title>StudentsCRUD</title>
+    <style>
+        *{
+            background-color: #109097;
+        }
+    </style>
 </head>
 <body>
 
@@ -35,8 +40,8 @@
                 <td>${student.getMajor()}</td>
                 <td>${student.getPhoneNumber()}</td>
                 <td>
-                    <a href="edit?id=${student.id}">Edit</a>
-                    <a href="delete?id=${student.id}">Delete</a>
+                    <a href="edit?id=${student.getId()}">Edit</a>
+                    <a href="delete?id=${student.getId()}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

@@ -7,25 +7,9 @@ import java.util.List;
 
 public class DataBase {
 
-    private static DataBase instance;
+    public static List<Student> students = new ArrayList<>();
 
-    private DataBase() {
-    }
-
-    public static DataBase getInstance() {
-        if (instance == null) {
-            synchronized (DataBase.class) {
-                if (instance == null) {
-                    instance = new DataBase();
-                }
-            }
-        }
-        return instance;
-    }
-
-    public List<Student> students = new ArrayList<>();
-
-    public void loadData() {
+    static {
         students.add(Student.builder().
                 id(1).
                 firstName("John").
@@ -60,33 +44,26 @@ public class DataBase {
                 build());
     }
 
-    public void addStudent(Student student) {
-        students.add(student);
+    private static DataBase instance;
+
+    private DataBase() {
     }
 
-    public List<Student> getStudents() {
+    public static DataBase getInstance() {
+        if (instance == null) {
+            synchronized (DataBase.class) {
+                if (instance == null) {
+                    instance = new DataBase();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public static List<Student> loadData() {
         return students;
     }
 
-    public void deleteStudent(Integer id) {
-        students.removeIf(student -> student.getId().equals(id));
-    }
 
-    public void updateStudent(Student student) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getId().equals(student.getId())) {
-                students.set(i, student);
-            }
-        }
-    }
-
-    public Student getStudentById(Integer id) {
-        for (Student student : students) {
-            if (student.getId().equals(id)) {
-                return student;
-            }
-        }
-        return null;
-    }
 
 }
