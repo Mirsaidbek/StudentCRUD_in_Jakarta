@@ -7,14 +7,14 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
+import static dev.said.studentlist.db.DataBase.students;
+
 @WebServlet(name = "StudentsListServlet", value = "/students")
 public class StudentsListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DataBase db = DataBase.getInstance();
-        db.loadData();
 
-        request.setAttribute("students", db.students);
+        request.setAttribute("students", students);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/students.jsp");
         dispatcher.forward(request, response);
     }

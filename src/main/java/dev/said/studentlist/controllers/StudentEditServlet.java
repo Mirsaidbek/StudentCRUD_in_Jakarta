@@ -45,9 +45,5 @@ public class StudentEditServlet extends HttpServlet {
 
         response.sendRedirect("/students");
 
-
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/students.jsp");
-//        dispatcher.forward(request, response);
-
     }
 }

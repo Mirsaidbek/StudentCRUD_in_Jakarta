@@ -41,7 +41,8 @@
                 <td>${student.getPhoneNumber()}</td>
                 <td>
                     <a href="edit?id=${student.getId()}">Edit</a>
-                    <a href="delete?id=${student.getId()}">Delete</a>
+                    <a href="delete?id=${student.getId()}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+<%--                    <a href="delete?id=${student.getId()}">Delete</a>--%>
                 </td>
             </tr>
         </c:forEach>
